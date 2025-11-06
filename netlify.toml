@@ -1,0 +1,37 @@
+# Netlify Configuration for EMF Safe Haven Next.js App
+# This configuration uses the Essential Next.js plugin for proper SSR support
+
+[build]
+  # Build command to run
+  command = "npm run build"
+  
+  # Node.js version to use
+  [build.environment]
+    NODE_VERSION = "18"
+    NPM_VERSION = "9"
+
+# Use the Essential Next.js plugin for proper Next.js support
+# This plugin handles server-side rendering, API routes, and static optimization
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Headers for better security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

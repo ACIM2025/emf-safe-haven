@@ -1,0 +1,183 @@
+
+'use client'
+
+import { Card, CardContent } from "@/components/ui/card"
+import { Check, Gift, Shield, Smartphone } from "lucide-react"
+import { motion } from "framer-motion"
+import Image from "next/image"
+
+export function ValueStackingSection() {
+  const valueItems = [
+    {
+      icon: Shield,
+      title: "EMF Safe Haven Device",
+      description: "Professional-grade EMF protection for your entire home",
+      value: "$297.00",
+      highlight: true
+    },
+    {
+      icon: Smartphone,
+      title: "4 EMF Phone Stickers",
+      description: "Protect your mobile devices wherever you go",
+      value: "$119.80",
+      bonus: true
+    },
+
+    {
+      icon: Check,
+      title: "Free Express Shipping",
+      description: "Fast delivery to your door, no extra cost",
+      value: "$15.00",
+      bonus: true
+    },
+    {
+      icon: Shield,
+      title: "30-Day Money Back Guarantee",
+      description: "Risk-free trial with full refund protection",
+      value: "$297.00",
+      bonus: true
+    }
+  ]
+
+  return (
+    <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-green-50">
+      <div className="max-w-6xl mx-auto">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Everything Included in Your Package
+          </h2>
+          <p className="text-xl text-gray-600">
+            Get over <span className="font-bold text-green-600">$728.80 in total value</span> for just $297 today
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {valueItems.map((item, index) => {
+              const IconComponent = item.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className={`shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    item.highlight ? 'border-2 border-green-500' : 
+                    item.bonus ? 'border-2 border-orange-200 bg-orange-50' : ''
+                  }`}>
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
+                          item.highlight ? 'bg-green-100' :
+                          item.bonus ? 'bg-orange-100' : 'bg-blue-100'
+                        }`}>
+                          <IconComponent className={`w-6 h-6 ${
+                            item.highlight ? 'text-green-600' :
+                            item.bonus ? 'text-orange-600' : 'text-blue-600'
+                          }`} />
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+                            <div className="text-right">
+                              {item.bonus && (
+                                <div className="text-sm font-bold text-orange-600 mb-1">FREE BONUS</div>
+                              )}
+                              <div className={`font-bold text-lg ${
+                                item.highlight ? 'text-green-600' : 'text-gray-900'
+                              }`}>
+                                {item.value}
+                              </div>
+                            </div>
+                          </div>
+                          <p className="text-gray-600">{item.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative">
+              <motion.div 
+                className="bg-white rounded-3xl p-8 shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative aspect-square mb-6">
+                  <Image
+                    src="https://b2512938.smushcdn.com/2512938/wp-content/uploads/2021/07/Safe-Haven-Insert-Pic-scaled.jpeg"
+                    alt="Complete EMF Safe Haven Package"
+                    fill
+                    className="object-contain rounded-2xl"
+                    sizes="400px"
+                  />
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="text-2xl font-bold text-gray-900">Total Package Value</div>
+                  <div className="text-lg text-gray-500 line-through">$728.80</div>
+                  <div className="text-5xl font-bold text-transparent bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text">
+                    $297
+                  </div>
+                  <div className="bg-red-100 text-red-800 px-4 py-2 rounded-full font-bold">
+                    You Save $431.80!
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10"
+                animate={{ 
+                  rotate: [0, -5, 5, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                59% OFF!
+              </motion.div>
+            </div>
+
+            <motion.p 
+              className="mt-8 text-lg text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              🎯 <strong>Limited Time:</strong> This complete package deal won't last long!
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}

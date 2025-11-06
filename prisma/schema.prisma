@@ -1,0 +1,108 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/earthwisegrounding/nextjs_space/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Order {
+  id            String   @id @default(cuid())
+  orderNumber   String   @unique @default(cuid())
+  
+  // Customer Information
+  firstName     String
+  lastName      String
+  email         String
+  phone         String?
+  
+  // Shipping Address
+  addressLine1  String
+  addressLine2  String?
+  city          String
+  state         String
+  zipCode       String
+  country       String   @default("United States")
+  
+  // Order Details
+  productName   String   @default("EMF Safe Haven")
+  quantity      Int      @default(1)
+  originalPrice Decimal  @default(399.00)
+  discountPrice Decimal  @default(297.00)
+  totalAmount   Decimal  @default(297.00)
+  
+  // Bonus Items
+  phoneStickerCount Int @default(2)
+  siliconeBandCount Int @default(2)
+  siliconeBandColor String?
+  siliconeBandSize  String?
+  
+  // Order Status
+  status        OrderStatus @default(PENDING)
+  paymentStatus PaymentStatus @default(PENDING)
+  
+  // Special Notes
+  customerNotes String?
+  
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("orders")
+}
+
+model NewsletterSignup {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  source    String?  // Where they signed up from
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("newsletter_signups")
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  source    String?  // Which form they submitted from
+  status    ContactStatus @default(NEW)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("contact_submissions")
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum ContactStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
