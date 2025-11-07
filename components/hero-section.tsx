@@ -147,15 +147,16 @@ export function HeroSection() {
             </div>
             
             <motion.div 
-              className="absolute -top-4 -right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg z-10"
+              className="absolute top-1/2 -translate-y-1/2 -right-3 bg-red-500 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-xl z-10"
               animate={{ 
-                scale: [1, 1.1, 1],
-                rotate: [0, -5, 5, 0]
+                scale: [1, 1.08, 1],
+                x: [0, -3, 0]
               }}
               transition={{ 
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
-                repeatType: "reverse"
+                repeatType: "reverse",
+                ease: "easeInOut"
               }}
             >
               Limited Offer!
