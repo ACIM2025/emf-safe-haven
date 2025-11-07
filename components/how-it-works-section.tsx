@@ -164,7 +164,7 @@ export function HowItWorksSection() {
                     >
                       <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-50 to-green-50 rounded-xl overflow-hidden border-2 border-blue-200">
                         <Image
-                          src="https://cdn.abacus.ai/images/dcd20e24-f91d-4c91-a808-6e375e36b8b8.png"
+                          src="https://cdn.abacus.ai/images/f8f8f371-8d9c-4987-8182-a6afc285b837.jpg"
                           alt="EMF Safe Haven device with electrical energy effects - Step 1: Plug into any grounded outlet"
                           fill
                           className="object-contain p-4 rounded-xl"
