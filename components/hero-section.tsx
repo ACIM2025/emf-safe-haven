@@ -121,21 +121,21 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative bg-gradient-to-br from-blue-100 to-green-100 rounded-3xl shadow-2xl overflow-visible">
+          <div className="relative bg-gradient-to-br from-blue-100 to-green-100 rounded-3xl shadow-2xl overflow-hidden">
             {/* Hero Protection Image */}
-            <div className="relative aspect-video bg-gradient-to-br from-blue-100 to-green-100">
+            <div className="relative aspect-video bg-white">
               <Image
-                src="/hero-house-image.png"
+                src="/hero-house-image.jpg"
                 alt="EMF Protected House - Blue house with protective energy field"
                 fill
-                className="object-cover rounded-t-3xl"
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
             </div>
             
             {/* Product Image Below Hero */}
-            <div className="relative aspect-square bg-gradient-to-br from-blue-50 to-green-50 p-8">
+            <div className="relative aspect-square bg-gradient-to-br from-blue-50 to-green-50 p-8 border-t-2 border-blue-200">
               <Image
                 src="https://www.buytfp.com/wp-content/uploads/2021/04/EMF-Safe-Haven-4-Web.png"
                 alt="EMF Safe Haven Device - Home EMF Protection"
