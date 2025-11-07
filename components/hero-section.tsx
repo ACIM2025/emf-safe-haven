@@ -137,8 +137,8 @@ export function HeroSection() {
             {/* Product Image Below Hero */}
             <div className="relative aspect-square bg-gradient-to-br from-blue-50 to-green-50 p-8 border-t-2 border-blue-200">
               <Image
-                src="https://www.buytfp.com/wp-content/uploads/2021/04/EMF-Safe-Haven-4-Web.png"
-                alt="EMF Safe Haven Device - Home EMF Protection"
+                src="/safe-haven-device-no-cord.png"
+                alt="EMF Safe Haven Device - Home EMF Protection without cord"
                 fill
                 className="object-contain p-4"
                 sizes="(max-width: 768px) 100vw, 50vw"
