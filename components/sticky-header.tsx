@@ -17,7 +17,7 @@ export function StickyHeader() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-50 border-b border-slate-100"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-200 border-b border-slate-300"
       style={{ 
         backdropFilter: `blur(${headerBlur}px)`,
       }}
