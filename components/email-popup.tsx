@@ -20,8 +20,8 @@ export function EmailPopup() {
       return
     }
 
-    // Show popup after random delay between 5-8 seconds
-    const delay = Math.floor(Math.random() * 3000) + 5000 // 5000-8000ms
+    // Show popup after 6 seconds (middle ground between 5-8 seconds)
+    const delay = 6000 // 6000ms = 6 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
     }, delay)
