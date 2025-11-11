@@ -10,6 +10,7 @@ import { TrustSection } from '@/components/trust-section'
 import { FAQSection } from '@/components/faq-section'
 import { OrderSection } from '@/components/order-section'
 import { StickyHeader } from '@/components/sticky-header'
+import { EmailPopup } from '@/components/email-popup'
 
 export default function HomePage() {
   return (
@@ -29,6 +30,7 @@ export default function HomePage() {
         <FAQSection />
         <OrderSection />
       </main>
+      <EmailPopup />
     </div>
   )
 }
