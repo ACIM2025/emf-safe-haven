@@ -1,0 +1,72 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          echo "📦 Installing dependencies..."
+          npm ci
+        continue-on-error: false
+      
+      - name: Build project
+        run: |
+          echo "🔨 Building project..."
+          npm run build
+        continue-on-error: false
+        env:
+          NODE_ENV: production
+      
+      - name: Install Netlify CLI
+        run: |
+          echo "⚙️ Installing Netlify CLI..."
+          npm install -g netlify-cli
+      
+      - name: Deploy to Netlify
+        id: netlify-deploy
+        run: |
+          echo "🚀 Deploying to Netlify..."
+          netlify deploy --prod --dir=.next --site=${{ secrets.NETLIFY_SITE_ID }} --auth=${{ secrets.NETLIFY_AUTH_TOKEN }}
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        continue-on-error: false
+      
+      - name: Report deployment status
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "✅ Deployment successful!"
+            echo "🌐 Your site is live at: https://helpful-arithmetic-cfe59b.netlify.app/"
+          else
+            echo "❌ Deployment failed. Please check the logs above for errors."
+            exit 1
+          fi
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Deployment to Netlify failed. Please review the build logs."
+          echo "Common issues to check:"
+          echo "1. Verify NETLIFY_AUTH_TOKEN secret is correct"
+          echo "2. Verify NETLIFY_SITE_ID secret is correct"
+          echo "3. Check if build completed successfully"
+          echo "4. Ensure all dependencies are properly installed"
