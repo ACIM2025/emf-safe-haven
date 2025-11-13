@@ -13,8 +13,8 @@ export function EmailPopup() {
 
   useEffect(() => {
     // Check if user has already closed the popup
-    const hasClosedPopup = localStorage.getItem('emailPopupClosed')
-    const hasSubmittedEmail = localStorage.getItem('emailPopupSubmitted')
+    const hasClosedPopup = sessionStorage.getItem('emailPopupClosed')
+    const hasSubmittedEmail = sessionStorage.getItem('emailPopupSubmitted')
     
     if (hasClosedPopup || hasSubmittedEmail) {
       return
@@ -30,7 +30,7 @@ export function EmailPopup() {
 
   const handleClose = () => {
     setIsVisible(false)
-    localStorage.setItem('emailPopupClosed', 'true')
+    sessionStorage.setItem('emailPopupClosed', 'true')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,7 +49,7 @@ export function EmailPopup() {
 
       if (response.ok) {
         setIsSubmitted(true)
-        localStorage.setItem('emailPopupSubmitted', 'true')
+        sessionStorage.setItem('emailPopupSubmitted', 'true')
         
         // Close popup after 2 seconds
         setTimeout(() => {
