@@ -11,13 +11,13 @@ export function EmailPopup() {
   const [exitIntentTriggered, setExitIntentTriggered] = useState(false)
 
   useEffect(() => {
-    // Check if user has already seen the popup
-    const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
-    const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
+    // TESTING MODE: Show popup every time (persistence checks disabled)
+    // const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
+    // const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
     
-    if (hasClosedPopup || hasSubmittedEmail) {
-      return
-    }
+    // if (hasClosedPopup || hasSubmittedEmail) {
+    //   return
+    // }
 
     // Timer trigger: Show popup after 7 seconds
     const timer = setTimeout(() => {
@@ -26,7 +26,7 @@ export function EmailPopup() {
 
     // Exit intent trigger
     const handleMouseMove = (e: MouseEvent) => {
-      if (e.clientY < 10 && !exitIntentTriggered && !hasClosedPopup && !hasSubmittedEmail) {
+      if (e.clientY < 10 && !exitIntentTriggered) {
         setExitIntentTriggered(true)
         setIsVisible(true)
       }
