@@ -2,35 +2,49 @@
 
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 
 export function EmailPopup() {
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [exitIntentTriggered, setExitIntentTriggered] = useState(false)
 
   useEffect(() => {
-    // Check if user has already closed the popup
-    const hasClosedPopup = sessionStorage.getItem('emailPopupClosed')
-    const hasSubmittedEmail = sessionStorage.getItem('emailPopupSubmitted')
+    // Check if user has already seen the popup
+    const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
+    const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
     
     if (hasClosedPopup || hasSubmittedEmail) {
       return
     }
 
-    // Show popup after 6 seconds
+    // Timer trigger: Show popup after 7 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 6000) // 6000ms = 6 seconds
+    }, 7000)
 
-    return () => clearTimeout(timer)
-  }, [])
+    // Exit intent trigger
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.clientY < 10 && !exitIntentTriggered && !hasClosedPopup && !hasSubmittedEmail) {
+        setExitIntentTriggered(true)
+        setIsVisible(true)
+      }
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      clearTimeout(timer)
+      document.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [exitIntentTriggered])
 
   const handleClose = () => {
     setIsVisible(false)
-    sessionStorage.setItem('emailPopupClosed', 'true')
+    const date = new Date()
+    date.setTime(date.getTime() + (14 * 24 * 60 * 60 * 1000)) // 14 days
+    localStorage.setItem('emf_popup_dismissed', 'true')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,12 +63,12 @@ export function EmailPopup() {
 
       if (response.ok) {
         setIsSubmitted(true)
-        sessionStorage.setItem('emailPopupSubmitted', 'true')
+        localStorage.setItem('emf_popup_submitted', 'true')
         
-        // Close popup after 2 seconds
+        // Close popup after 3 seconds
         setTimeout(() => {
           setIsVisible(false)
-        }, 2000)
+        }, 3000)
       }
     } catch (error) {
       console.error('Error submitting email:', error)
@@ -66,114 +80,101 @@ export function EmailPopup() {
   if (!isVisible) return null
 
   return (
-    <>
-      {/* Backdrop */}
+    <div 
+      className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/75 animate-in fade-in duration-300"
+      onClick={handleClose}
+    >
       <div 
-        className="fixed inset-0 bg-black/50 z-50 animate-in fade-in duration-300"
-        onClick={handleClose}
-      />
-      
-      {/* Popup */}
-      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md p-6 animate-in zoom-in-95 duration-300">
-        <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8">
-          {/* Close button */}
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
-            aria-label="Close popup"
-          >
-            <X className="w-6 h-6" />
-          </button>
+        className="relative bg-[#fafafa] border-2 border-dashed border-[#333] max-w-[580px] w-[90%] max-h-[90vh] overflow-y-auto p-8 md:p-10 shadow-2xl animate-in slide-in-from-bottom-12 duration-400"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 text-[#666] hover:text-black transition-colors text-3xl leading-none p-2"
+          aria-label="Close popup"
+        >
+          <X size={28} />
+        </button>
 
-          {!isSubmitted ? (
-            <div className="space-y-4">
-              {/* Icon/Image */}
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
+        {!isSubmitted ? (
+          <div className="text-center">
+            {/* Headline */}
+            <h2 className="text-2xl md:text-[26px] font-bold text-[#1a1a1a] leading-tight mb-4 tracking-tight">
+              Free EMF Protection Research Report
+            </h2>
+            
+            {/* Subheadline */}
+            <p className="text-[15px] text-[#555] italic leading-relaxed mb-8">
+              Discover Science-Backed Methods to Shield Your Home
+            </p>
+
+            {/* Benefits Section */}
+            <h3 className="text-lg font-semibold text-[#1a1a1a] mb-4 text-left">
+              Inside This Free Report:
+            </h3>
+            
+            <ul className="text-left mb-8 space-y-3">
+              {[
+                'Latest peer-reviewed research on EMF exposure risks',
+                '5 proven shielding techniques used by experts',
+                'Room-by-room protection strategies',
+                'EMF meter recommendations and measurement tips'
+              ].map((benefit, index) => (
+                <li key={index} className="text-[15px] text-[#333] leading-relaxed pl-6 relative">
+                  <span className="absolute left-0 text-[#2c7a2c] font-bold text-lg">✓</span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="mb-5">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                required
+                className="w-full px-4 py-3.5 text-base border-2 border-[#ccc] rounded focus:outline-none focus:border-[#333] mb-4 transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-6 py-4 text-lg font-bold text-white bg-[#1a1a1a] rounded hover:bg-[#333] transition-all disabled:opacity-50 tracking-wide"
+              >
+                {isSubmitting ? 'Sending...' : 'Get My Free Report Now'}
+              </button>
+            </form>
+
+            {/* Trust Elements */}
+            <div className="flex justify-center gap-6 md:gap-8 flex-wrap text-[13px] text-[#666]">
+              <div className="flex items-center gap-2">
+                <span className="text-base">🔒</span>
+                <span>100% Privacy</span>
               </div>
-
-              {/* Heading */}
-              <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
-                Get Exclusive EMF Protection Tips! 🛡️
-              </h3>
-
-              {/* Description */}
-              <p className="text-center text-gray-600 dark:text-gray-300">
-                Join our community and receive expert tips on EMF protection, special offers, and health insights delivered to your inbox.
-              </p>
-
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-4 mt-6">
-                <Input
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 text-base"
-                  disabled={isSubmitting}
-                />
-                
-                <Button
-                  type="submit"
-                  className="w-full py-3 text-base font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Subscribing...' : 'Get Free Tips Now'}
-                </Button>
-              </form>
-
-              {/* Privacy note */}
-              <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">
-                We respect your privacy. Unsubscribe anytime.
-              </p>
-            </div>
-          ) : (
-            <div className="text-center py-4">
-              {/* Success icon */}
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="text-base">📧</span>
+                <span>No Spam</span>
               </div>
-
-              {/* Success message */}
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                Thank You! ✨
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                You&apos;re all set! Check your inbox for exclusive EMF protection tips.
-              </p>
+              <div className="flex items-center gap-2">
+                <span className="text-base">✓</span>
+                <span>Instant Access</span>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="text-center py-8">
+            <h3 className="text-2xl font-semibold text-[#2c7a2c] mb-4">
+              ✓ Success!
+            </h3>
+            <p className="text-base text-[#333] leading-relaxed">
+              Check your inbox for your free EMF Protection Report.<br />
+              (Don&apos;t forget to check your spam folder!)
+            </p>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   )
 }
