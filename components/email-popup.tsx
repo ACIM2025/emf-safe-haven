@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { X } from 'lucide-react'
 
 export function EmailPopup() {
@@ -8,27 +8,34 @@ export function EmailPopup() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [exitIntentTriggered, setExitIntentTriggered] = useState(false)
+  const hasShownPopup = useRef(false)
 
   useEffect(() => {
-    // TESTING MODE: Show popup every time (persistence checks disabled)
-    // const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
-    // const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
+    // Check if user has already seen the popup (14-day persistence)
+    const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
+    const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
     
-    // if (hasClosedPopup || hasSubmittedEmail) {
-    //   return
-    // }
+    if (hasClosedPopup || hasSubmittedEmail) {
+      return
+    }
+
+    // Function to show popup (ensures it only shows once)
+    const showPopup = () => {
+      if (!hasShownPopup.current) {
+        hasShownPopup.current = true
+        setIsVisible(true)
+      }
+    }
 
     // Timer trigger: Show popup after 7 seconds
     const timer = setTimeout(() => {
-      setIsVisible(true)
+      showPopup()
     }, 7000)
 
-    // Exit intent trigger
+    // Exit intent trigger: Show when cursor moves to top of page
     const handleMouseMove = (e: MouseEvent) => {
-      if (e.clientY < 10 && !exitIntentTriggered) {
-        setExitIntentTriggered(true)
-        setIsVisible(true)
+      if (e.clientY < 10 && !hasShownPopup.current) {
+        showPopup()
       }
     }
 
@@ -38,7 +45,7 @@ export function EmailPopup() {
       clearTimeout(timer)
       document.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [exitIntentTriggered])
+  }, [])
 
   const handleClose = () => {
     setIsVisible(false)
