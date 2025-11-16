@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Shield, Zap, Home } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { HeroEmailForm } from "./hero-email-form"
 
 export function HeroSection() {
   const scrollToOrder = () => {
@@ -40,6 +41,15 @@ export function HeroSection() {
               your home's electrical wiring system.
             </p>
           </div>
+
+          {/* Email Form - Primary Conversion Tool */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <HeroEmailForm />
+          </motion.div>
 
           <div className="grid grid-cols-3 gap-6">
             <motion.div 

@@ -11,15 +11,10 @@ export function EmailPopup() {
   const hasShownPopup = useRef(false)
 
   useEffect(() => {
-    // Check if user has already seen the popup (14-day persistence)
-    const hasClosedPopup = localStorage.getItem('emf_popup_dismissed')
-    const hasSubmittedEmail = localStorage.getItem('emf_popup_submitted')
+    // Landing page strategy: Show popup on exit-intent ONLY
+    // No localStorage persistence - show every time for maximum conversions
     
-    if (hasClosedPopup || hasSubmittedEmail) {
-      return
-    }
-
-    // Function to show popup (ensures it only shows once)
+    // Function to show popup (ensures it only shows once per session)
     const showPopup = () => {
       if (!hasShownPopup.current) {
         hasShownPopup.current = true
@@ -27,12 +22,7 @@ export function EmailPopup() {
       }
     }
 
-    // Timer trigger: Show popup after 7 seconds
-    const timer = setTimeout(() => {
-      showPopup()
-    }, 7000)
-
-    // Exit intent trigger: Show when cursor moves to top of page
+    // Exit intent trigger: Show when cursor moves to top of page (about to leave)
     const handleMouseMove = (e: MouseEvent) => {
       if (e.clientY < 10 && !hasShownPopup.current) {
         showPopup()
@@ -42,16 +32,13 @@ export function EmailPopup() {
     document.addEventListener('mousemove', handleMouseMove)
 
     return () => {
-      clearTimeout(timer)
       document.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
 
   const handleClose = () => {
     setIsVisible(false)
-    const date = new Date()
-    date.setTime(date.getTime() + (14 * 24 * 60 * 60 * 1000)) // 14 days
-    localStorage.setItem('emf_popup_dismissed', 'true')
+    // No localStorage - popup can show again on next visit (landing page strategy)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -70,7 +57,6 @@ export function EmailPopup() {
 
       if (response.ok) {
         setIsSubmitted(true)
-        localStorage.setItem('emf_popup_submitted', 'true')
         
         // Close popup after 3 seconds
         setTimeout(() => {
