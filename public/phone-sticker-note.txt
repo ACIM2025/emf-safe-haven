@@ -1,0 +1,2 @@
+Note: We're using a generic phone sticker image for now.
+If a specific EMF phone sticker image is available, please replace /public/phone-sticker.png

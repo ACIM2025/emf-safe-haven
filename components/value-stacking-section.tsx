@@ -21,7 +21,7 @@ export function ValueStackingSection() {
       description: "Protect your mobile devices wherever you go",
       value: "$59.82",
       bonus: true,
-      image: "/phone-sticker.png"
+      image: "https://b2512938.smushcdn.com/2512938/wp-content/uploads/2022/04/EMF-Chip-Sticker-300x300.jpg"
     },
     {
       icon: Gift,

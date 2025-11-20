@@ -29,7 +29,6 @@ export default function HomePage() {
         <HowItWorksSection />
         <TrustSection />
         <TestimonialsSection placement="after-trust" />
-        <FreeReportOptin />
         <FAQSection />
         <OrderSection />
       </main>
