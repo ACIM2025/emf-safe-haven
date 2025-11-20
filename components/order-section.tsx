@@ -145,10 +145,13 @@ export function OrderSection() {
                         <span>4x EMF Phone Stickers</span>
                         <span className="text-green-600 font-semibold">$119.80</span>
                       </div>
-
                       <div className="flex justify-between">
                         <span>Free Express Shipping</span>
                         <span className="text-green-600 font-semibold">$15.00</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>30-Day Money Back Guarantee</span>
+                        <span className="text-green-600 font-semibold">$297.00</span>
                       </div>
                     </div>
                   </div>
@@ -156,7 +159,7 @@ export function OrderSection() {
                   <div className="bg-green-50 p-4 rounded-lg">
                     <div className="flex justify-between items-center text-lg">
                       <span className="font-bold">Total Package Value:</span>
-                      <span className="text-gray-500 line-through">$431.80</span>
+                      <span className="text-gray-500 line-through">$728.80</span>
                     </div>
                     <div className="flex justify-between items-center text-2xl font-bold text-green-600">
                       <span>Your Price Today:</span>
@@ -164,7 +167,7 @@ export function OrderSection() {
                     </div>
                     <div className="text-center mt-2">
                       <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-bold">
-                        You Save $134.80!
+                        You Save: $431.80 (59% OFF)
                       </span>
                     </div>
                   </div>

@@ -48,7 +48,7 @@ export function PricingSection() {
                 repeatType: "reverse"
               }}
             >
-              Save $102!
+              Save $431.80 (59% OFF)
             </motion.div>
             
             <CardContent className="p-8 text-center">
@@ -64,8 +64,8 @@ export function PricingSection() {
                 
                 <div className="space-y-2 mb-6">
                   <div className="flex items-center justify-center space-x-3">
-                    <span className="text-2xl text-gray-500 line-through font-semibold">$399.00</span>
-                    <span className="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Original Price</span>
+                    <span className="text-2xl text-gray-500 line-through font-semibold">$728.80</span>
+                    <span className="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Total Package Value</span>
                   </div>
                   
                   <motion.div 

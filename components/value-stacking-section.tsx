@@ -145,7 +145,7 @@ export function ValueStackingSection() {
                     $297
                   </div>
                   <div className="bg-red-100 text-red-800 px-4 py-2 rounded-full font-bold">
-                    You Save $431.80!
+                    You Save: $431.80 (59% OFF)
                   </div>
                 </div>
               </motion.div>
