@@ -19,7 +19,7 @@ export function ValueStackingSection() {
       icon: Smartphone,
       title: "2 EMF Phone Stickers",
       description: "Protect your mobile devices wherever you go",
-      value: "$59.90",
+      value: "$59.82",
       bonus: true,
       image: "/phone-sticker.png"
     },
@@ -27,7 +27,7 @@ export function ValueStackingSection() {
       icon: Gift,
       title: "2 Silicone Bands",
       description: "Wearable EMF protection with stylish design",
-      value: "$371.90",
+      value: "$59.98",
       bonus: true,
       image: "/silicone-band.png"
     },

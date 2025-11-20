@@ -99,11 +99,11 @@ export function PricingSection() {
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-green-700 font-semibold">2 FREE Phone Stickers ($59.90)</span>
+                      <span className="text-green-700 font-semibold">2 FREE Phone Stickers ($59.82)</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-green-700 font-semibold">2 FREE Silicone Bands ($371.90)</span>
+                      <span className="text-green-700 font-semibold">2 FREE Silicone Bands ($59.98)</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
