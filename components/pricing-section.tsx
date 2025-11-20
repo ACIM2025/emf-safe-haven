@@ -62,10 +62,10 @@ export function PricingSection() {
                 
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">EMF Safe Haven Complete Package</h3>
                 
-                <div className="space-y-2 mb-6">
-                  <div className="flex items-center justify-center space-x-3">
-                    <span className="text-2xl text-gray-500 line-through font-semibold">$728.80</span>
-                    <span className="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">Total Package Value</span>
+                <div className="space-y-3 mb-6">
+                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-4">
+                    <div className="text-sm text-green-800 font-semibold mb-1">🎁 You Get $431.80 in FREE Bonuses!</div>
+                    <div className="text-xs text-green-700">2 Phone Stickers + 2 Silicone Bands + Free Shipping</div>
                   </div>
                   
                   <motion.div 
@@ -77,7 +77,12 @@ export function PricingSection() {
                   </motion.div>
                   
                   <div className="text-lg text-gray-600">
-                    <strong>Today Only</strong> + FREE Shipping
+                    <strong>Your Price Today</strong>
+                  </div>
+                  
+                  <div className="flex items-center justify-center space-x-2 text-base font-semibold text-blue-600">
+                    <span className="text-2xl">🚚</span>
+                    <span>FREE EXPRESS SHIPPING INCLUDED</span>
                   </div>
                 </div>
 

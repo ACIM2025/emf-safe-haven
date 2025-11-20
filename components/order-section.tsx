@@ -160,19 +160,19 @@ export function OrderSection() {
                     </div>
                   </div>
 
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="flex justify-between items-center text-lg">
-                      <span className="font-bold">Total Package Value:</span>
-                      <span className="text-gray-500 line-through">$728.80</span>
+                  <div className="bg-green-50 p-4 rounded-lg border-2 border-green-200">
+                    <div className="text-center mb-3">
+                      <div className="text-sm text-green-800 font-bold mb-1">🎁 FREE BONUSES INCLUDED</div>
+                      <div className="text-lg font-bold text-green-700">$431.80 Value Added</div>
                     </div>
-                    <div className="flex justify-between items-center text-2xl font-bold text-green-600">
+                    <div className="flex justify-between items-center text-2xl font-bold text-gray-900 mb-2">
                       <span>Your Price Today:</span>
                       <span>$297.00</span>
                     </div>
-                    <div className="text-center mt-2">
-                      <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-bold">
-                        You Save: $431.80 (59% OFF)
-                      </span>
+                    <div className="text-center">
+                      <div className="text-sm text-blue-700 font-semibold">
+                        🚚 Includes FREE Express Shipping
+                      </div>
                     </div>
                   </div>
 
