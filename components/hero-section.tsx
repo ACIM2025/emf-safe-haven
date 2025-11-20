@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Shield, Zap, Home } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { HeroEmailForm } from "./hero-email-form"
 
 export function HeroSection() {
   const scrollToOrder = () => {
@@ -35,23 +34,33 @@ export function HeroSection() {
               </span>
             </h1>
             
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-gray-700 leading-relaxed font-medium">
+              A plug-in device that uses Earth's natural frequency to reduce harmful EMF effects throughout your entire home.
+            </p>
+            
+            <p className="text-lg text-gray-600 leading-relaxed">
               Protect your family from harmful electromagnetic radiation with the EMF Safe Haven. 
               Our proprietary Frequency Technology creates a 50,000 sq ft protective field through 
               your home's electrical wiring system.
             </p>
           </div>
 
-          {/* Email Form - Primary Conversion Tool */}
+          {/* Primary CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <HeroEmailForm />
+            <Button 
+              onClick={scrollToOrder}
+              size="lg"
+              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-6 px-12 text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
+            >
+              Get Protected Now
+            </Button>
           </motion.div>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6 mt-8">
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
@@ -89,38 +98,14 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <Button 
-              onClick={scrollToOrder}
-              size="lg"
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-8 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              Get EMF Safe Haven Now - $297
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 text-lg"
-            >
-              See How It Works
-            </Button>
-          </motion.div>
-
-          <div className="flex items-center space-x-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-sm text-gray-500">
             <div className="flex items-center space-x-1">
               <Shield className="w-4 h-4" />
               <span>30-Day Money Back Guarantee</span>
             </div>
-            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+            <div className="w-1 h-1 bg-gray-400 rounded-full hidden sm:block"></div>
             <span>Free Shipping</span>
-            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+            <div className="w-1 h-1 bg-gray-400 rounded-full hidden sm:block"></div>
             <span>Made in USA</span>
           </div>
         </motion.div>

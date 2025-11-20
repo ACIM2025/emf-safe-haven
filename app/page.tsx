@@ -11,6 +11,7 @@ import { FAQSection } from '@/components/faq-section'
 import { OrderSection } from '@/components/order-section'
 import { StickyHeader } from '@/components/sticky-header'
 import { EmailPopup } from '@/components/email-popup'
+import { FreeReportOptin } from '@/components/free-report-optin'
 
 export default function HomePage() {
   return (
@@ -23,10 +24,12 @@ export default function HomePage() {
         <TestimonialsSection placement="after-pricing" />
         <ValueStackingSection />
         <BenefitsSection />
+        <FreeReportOptin />
         <TestimonialsSection placement="after-benefits" />
         <HowItWorksSection />
         <TrustSection />
         <TestimonialsSection placement="after-trust" />
+        <FreeReportOptin />
         <FAQSection />
         <OrderSection />
       </main>
