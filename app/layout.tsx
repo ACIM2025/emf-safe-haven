@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic"
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || 'https://earthwisegrounding.com'),
   title: 'EMF Safe Haven - Protect Your Home from EMF Radiation | 24/7 Protection',
-  description: 'Transform your home into an EMF-safe zone with the EMF Safe Haven device. Covers up to 50,000 sq ft, plugs into any grounded outlet. Get 4 FREE phone stickers (valued at $119.80) - Limited time offer!',
+  description: 'Transform your home into an EMF-safe zone with the EMF Safe Haven device. Covers up to 50,000 sq ft, plugs into any grounded outlet. Get 2 FREE phone stickers + 2 FREE silicone bands (valued at $431.80) - Limited time offer!',
   keywords: 'EMF protection, electromagnetic field protection, EMF safe haven, home EMF shield, office EMF protection, grounding technology, EMF reduction, electromagnetic radiation protection',
   authors: [{ name: 'EarthWise Grounding' }],
   creator: 'EarthWise Grounding',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'EMF Safe Haven - Protect Your Home from EMF Radiation',
-    description: 'Transform your home into an EMF-safe zone. Covers 50,000 sq ft. Get 4 FREE phone stickers worth $119.80. Limited time offer!',
+    description: 'Transform your home into an EMF-safe zone. Covers 50,000 sq ft. Get 2 FREE phone stickers + 2 FREE silicone bands worth $431.80. Limited time offer!',
     url: 'https://earthwisegrounding.com',
     siteName: 'EarthWise Grounding',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'EMF Safe Haven - Protect Your Home from EMF Radiation',
-    description: 'Transform your home into an EMF-safe zone. Get 4 FREE phone stickers worth $119.80!',
+    description: 'Transform your home into an EMF-safe zone. Get 2 FREE phone stickers + 2 FREE silicone bands worth $431.80!',
     images: ['/og-image.png'],
   },
   robots: {
