@@ -20,7 +20,7 @@ export function FAQSection() {
     },
     {
       question: "What's included with my purchase?",
-      answer: "Your complete package includes: 1x EMF Safe Haven device, 4x FREE EMF phone stickers ($119.80 value), free express shipping, and a 30-day money-back guarantee. Total value over $728.80, yours for just $297."
+      answer: "Your complete package includes: 1x EMF Safe Haven device, 2x FREE EMF phone stickers ($59.90 value), 2x FREE silicone bands ($371.90 value), free express shipping, and a 30-day money-back guarantee. Total value over $728.80, yours for just $297."
     },
     {
       question: "Is there a money-back guarantee?",
@@ -31,8 +31,8 @@ export function FAQSection() {
       answer: "Installation is incredibly simple - just plug the EMF Safe Haven into any grounded electrical outlet in your home or office. That's it! The device immediately begins working, creating an EMF-safe zone throughout your building's electrical system. No maintenance, batteries, or ongoing intervention required."
     },
     {
-      question: "How long do the FREE bonus phone stickers last?",
-      answer: "The EMF phone stickers are designed for long-term use and don't have an expiration date. They use the same proprietary frequency technology as the main device. You can easily transfer them when you upgrade your phone, or apply them permanently to any electronic device that emits EMF radiation."
+      question: "How long do the FREE bonus items (phone stickers and silicone bands) last?",
+      answer: "Both the EMF phone stickers and silicone bands are designed for long-term use and don't have an expiration date. They use the same proprietary frequency technology as the main device. You can easily transfer the stickers when you upgrade your phone, or apply them permanently to any electronic device. The silicone bands are comfortable for daily wear and provide personal EMF protection wherever you go."
     },
     {
       question: "What makes this different from other EMF protection products?",

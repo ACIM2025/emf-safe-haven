@@ -77,10 +77,13 @@ export function CountdownSection() {
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-4">Get 4 FREE EMF Phone Stickers</h3>
-            <p className="text-xl opacity-90">
-              Valued at <span className="font-bold text-yellow-300">$119.80</span> - 
-              Protect your phone AND your home!
+            <h3 className="text-2xl font-bold mb-4">Get FREE Bonus Items</h3>
+            <p className="text-xl opacity-90 mb-2">
+              <span className="font-bold">2 Phone Stickers</span> ($59.90) + <span className="font-bold">2 Silicone Bands</span> ($371.90)
+            </p>
+            <p className="text-lg opacity-90">
+              Total value: <span className="font-bold text-yellow-300">$431.80</span> - 
+              Complete protection for you and your home!
             </p>
           </motion.div>
 
@@ -152,7 +155,7 @@ export function CountdownSection() {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          Don't miss out on this incredible <strong>$119.80 value</strong> - Order your EMF Safe Haven now!
+          Don't miss out on this incredible <strong>$431.80 value</strong> - Order your EMF Safe Haven now!
         </motion.p>
       </div>
     </motion.section>
