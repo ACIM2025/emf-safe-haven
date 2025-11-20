@@ -79,7 +79,7 @@ export function CountdownSection() {
           >
             <h3 className="text-2xl font-bold mb-4">Get FREE Bonus Items</h3>
             <p className="text-xl opacity-90 mb-2">
-              <span className="font-bold">2 Phone Stickers</span> ($59.90) + <span className="font-bold">2 Silicone Bands</span> ($371.90)
+              <span className="font-bold">2 Phone Stickers</span> ($59.82) + <span className="font-bold">2 Silicone Bands</span> ($59.98)
             </p>
             <p className="text-lg opacity-90">
               Total value: <span className="font-bold text-yellow-300">$431.80</span> - 
@@ -88,19 +88,28 @@ export function CountdownSection() {
           </motion.div>
 
           <motion.div 
-            className="flex justify-center"
+            className="flex justify-center gap-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="relative aspect-square w-48 bg-white/10 rounded-2xl p-4">
+            <div className="relative aspect-square w-40 bg-white/10 rounded-2xl p-4">
               <Image
                 src="https://b2512938.smushcdn.com/2512938/wp-content/uploads/2022/04/EMF-Chip-Sticker-300x300.jpg"
-                alt="FREE EMF Phone Stickers - $59.90 Value"
+                alt="FREE EMF Phone Stickers - $59.82 Value"
                 fill
                 className="object-contain rounded-lg"
-                sizes="192px"
+                sizes="160px"
+              />
+            </div>
+            <div className="relative aspect-square w-40 bg-white/10 rounded-2xl p-4">
+              <Image
+                src="/silicone-band.png"
+                alt="FREE Silicone Bands - $59.98 Value"
+                fill
+                className="object-contain rounded-lg"
+                sizes="160px"
               />
             </div>
           </motion.div>
