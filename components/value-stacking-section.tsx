@@ -17,12 +17,20 @@ export function ValueStackingSection() {
     },
     {
       icon: Smartphone,
-      title: "4 EMF Phone Stickers",
+      title: "2 EMF Phone Stickers",
       description: "Protect your mobile devices wherever you go",
-      value: "$119.80",
-      bonus: true
+      value: "$59.90",
+      bonus: true,
+      image: "/phone-sticker.png"
     },
-
+    {
+      icon: Gift,
+      title: "2 Silicone Bands",
+      description: "Wearable EMF protection with stylish design",
+      value: "$371.90",
+      bonus: true,
+      image: "/silicone-band.png"
+    },
     {
       icon: Check,
       title: "Free Express Shipping",
@@ -81,15 +89,27 @@ export function ValueStackingSection() {
                   }`}>
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
-                          item.highlight ? 'bg-green-100' :
-                          item.bonus ? 'bg-orange-100' : 'bg-blue-100'
-                        }`}>
-                          <IconComponent className={`w-6 h-6 ${
-                            item.highlight ? 'text-green-600' :
-                            item.bonus ? 'text-orange-600' : 'text-blue-600'
-                          }`} />
-                        </div>
+                        {item.image ? (
+                          <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-gray-200">
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              width={80}
+                              height={80}
+                              className="object-cover w-full h-full"
+                            />
+                          </div>
+                        ) : (
+                          <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
+                            item.highlight ? 'bg-green-100' :
+                            item.bonus ? 'bg-orange-100' : 'bg-blue-100'
+                          }`}>
+                            <IconComponent className={`w-6 h-6 ${
+                              item.highlight ? 'text-green-600' :
+                              item.bonus ? 'text-orange-600' : 'text-blue-600'
+                            }`} />
+                          </div>
+                        )}
                         
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">

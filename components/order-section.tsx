@@ -142,8 +142,12 @@ export function OrderSection() {
                     
                     <div className="pl-6 space-y-1 text-sm">
                       <div className="flex justify-between">
-                        <span>4x EMF Phone Stickers</span>
-                        <span className="text-green-600 font-semibold">$119.80</span>
+                        <span>2x EMF Phone Stickers</span>
+                        <span className="text-green-600 font-semibold">$59.90</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>2x Silicone Bands</span>
+                        <span className="text-green-600 font-semibold">$371.90</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Free Express Shipping</span>
