@@ -78,10 +78,16 @@ export function CountdownSection() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-4">Get FREE Bonus Items</h3>
-            <p className="text-xl opacity-90 mb-2">
-              <span className="font-bold">2 Phone Stickers</span> ($59.82) + <span className="font-bold">2 Silicone Bands</span> ($59.98)
-            </p>
-            <p className="text-lg opacity-90">
+            <div className="text-xl opacity-90 mb-2 space-y-1">
+              <div>
+                <span className="font-bold">2 Phone Stickers</span> <span className="text-yellow-300">($59.90)</span>
+              </div>
+              <div className="text-lg opacity-75">and</div>
+              <div>
+                <span className="font-bold">2 Silicone Bands</span> <span className="text-yellow-300">($371.90)</span>
+              </div>
+            </div>
+            <p className="text-lg opacity-90 mt-3">
               Total value: <span className="font-bold text-yellow-300">$431.80</span> - 
               Complete protection for you and your home!
             </p>
