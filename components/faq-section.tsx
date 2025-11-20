@@ -20,7 +20,7 @@ export function FAQSection() {
     },
     {
       question: "What's included with my purchase?",
-      answer: "Your complete package includes: 1x EMF Safe Haven device, 2x FREE EMF phone stickers ($59.90 value), 2x FREE silicone bands ($371.90 value), free express shipping, and a 30-day money-back guarantee. Total value over $728.80, yours for just $297."
+      answer: "Your complete package includes: 1x EMF Safe Haven device, 2x FREE EMF phone stickers ($59.82 value), 2x FREE silicone bands ($59.98 value), free express shipping, and a 30-day money-back guarantee. Total value over $728.80, yours for just $297."
     },
     {
       question: "Is there a money-back guarantee?",

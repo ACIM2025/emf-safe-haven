@@ -80,11 +80,11 @@ export function CountdownSection() {
             <h3 className="text-2xl font-bold mb-4">Get FREE Bonus Items</h3>
             <div className="text-xl opacity-90 mb-2 space-y-1">
               <div>
-                <span className="font-bold">2 Phone Stickers</span> <span className="text-yellow-300">($59.90)</span>
+                <span className="font-bold">2 Phone Stickers</span> <span className="text-yellow-300">($59.82)</span>
               </div>
               <div className="text-lg opacity-75">and</div>
               <div>
-                <span className="font-bold">2 Silicone Bands</span> <span className="text-yellow-300">($371.90)</span>
+                <span className="font-bold">2 Silicone Bands</span> <span className="text-yellow-300">($59.98)</span>
               </div>
             </div>
             <p className="text-lg opacity-90 mt-3">
