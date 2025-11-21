@@ -90,12 +90,12 @@ export function FreeReportOptin() {
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Not ready to buy yet? Get our Free EMF Protection Report
+              See Why Families Are Choosing EMF Safe Haven
             </h2>
             
             <div className="space-y-3 text-left max-w-2xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed">
-                <span className="font-semibold">Discover the hidden dangers of EMF radiation</span> in your home and learn proven strategies to protect your family. This comprehensive report includes:
+                Get our Free EMF Protection Report and learn the science behind whole-home EMF protection. Discover how the EMF Safe Haven works and why it's the #1 choice for concerned families.
               </p>
               
               <ul className="space-y-2 text-gray-600">
